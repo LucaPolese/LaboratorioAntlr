@@ -3,7 +3,8 @@ grammar pascal;
 start     : 'program' ID ';' 'var' decl_list main_code EOF ;
 
 decl_list : decl | decl decl_list ;
-decl      : ID ':' 'integer' ';' ;
+decl      : var_list ':' 'integer' ';' ;
+var_list  : ID | ID ',' var_list;
 
 main_code : 'begin' st_list 'end' '.' ;
 code_block: statement | 'begin' st_list 'end' ;
