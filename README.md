@@ -6,7 +6,7 @@ Nel documento laboratorio_02.pdf è disponibile un tutorial che descrive la gram
 
 L'obiettivo è quello di estendere la grammatica del linguaggio Pascal con le seguenti funzionalità:
 
-[ ] Liste di variabili nelle dichiarazioni dove le istruzioni sono racchiuse tra `repeat` e `until`, senza la necessità di un blocco `begin ... end`
+- [ ] Liste di variabili nelle dichiarazioni dove le istruzioni sono racchiuse tra `repeat` e `until`, senza la necessità di un blocco `begin ... end`
 ```pascal
 var
     x, y, z: integer;
@@ -18,18 +18,18 @@ repeat
     ...
 until guardia;
 ``` 
-[ ] Estendere costrutto `if-then` con il ramo `else`:
+- [ ] Estendere costrutto `if-then` con il ramo `else`:
 ```pascal
 if guardia then
   blocco_di_codice
 else
   blocco_di_codice;
 ```
-[ ] il ramo `else` è opzionale e può essere omesso. `blocco_di_codice` è una singola istruzione oppure un blocco `begin ... end`.
+- [ ] il ramo `else` è opzionale e può essere omesso. `blocco_di_codice` è una singola istruzione oppure un blocco `begin ... end`.
 espressioni aritmetiche che usano gli operatori `+, -, *, /` e `%` (modulo), e le parentesi espressioni booleane complesse che utilizzano gli operatori logici `and, or, not`, e le parentesi
 
-[ ] la procedura `readln(variabile)` che legge un valore intero dallo standard input e lo memorizza in variabile
+- [ ] la procedura `readln(variabile)` che legge un valore intero dallo standard input e lo memorizza in variabile
 permettere alla procedura writeln di scrivere stringhe sullo schermo
-[ ] `writeln ( stringa )` dove stringa è una qualsiasi sequenza di caratteri compresi tra apici `''`
+- [ ] `writeln ( stringa )` dove stringa è una qualsiasi sequenza di caratteri compresi tra apici `''`
 
 Sono disponibili alcuni esempi dei vari costrutti nella directory `tests` da usare per testare la grammatica estesa. 
