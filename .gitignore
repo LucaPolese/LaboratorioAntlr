@@ -1,0 +1,10 @@
+/.vscode/
+/.antlr/
+pascalLexer.interp
+pascalLexer.tokens
+pascalParser.interp
+pascalParser.tokens
+pascal.interp
+pascal.tokens
+pascalLexer.o
+syncheck
