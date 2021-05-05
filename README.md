@@ -6,7 +6,7 @@ Nel documento laboratorio_02.pdf è disponibile un tutorial che descrive la gram
 
 L'obiettivo è quello di estendere la grammatica del linguaggio Pascal con le seguenti funzionalità:
 
-- [ ] Liste di variabili nelle dichiarazioni dove le istruzioni sono racchiuse tra `repeat` e `until`, senza la necessità di un blocco `begin ... end`
+- [ x ] Liste di variabili nelle dichiarazioni dove le istruzioni sono racchiuse tra `repeat` e `until`, senza la necessità di un blocco `begin ... end`
 ```pascal
 var
     x, y, z: integer;
