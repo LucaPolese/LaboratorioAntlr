@@ -13,13 +13,13 @@ class  pascalLexer : public antlr4::Lexer {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T__13 = 14, 
-    T__14 = 15, PLUS = 16, MINUS = 17, TIMES = 18, DIVISION = 19, MOD = 20, 
-    ASSIGN = 21, COMMA = 22, SEMI = 23, COLON = 24, EQ = 25, LT = 26, LEQ = 27, 
-    GT = 28, GEQ = 29, NEQ = 30, LPAREN = 31, RPAREN = 32, LPARENCOM = 33, 
-    RPARENCOM = 34, LBRACK = 35, RBRACK = 36, DOT = 37, LCURLY = 38, RCURLY = 39, 
-    ID = 40, NUMBER = 41, STRING = 42, R_COMMENT = 43, C_COMMENT = 44, LINE_COMMENT = 45, 
-    WS = 46, ErrorChar = 47
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, PLUS = 13, MINUS = 14, 
+    TIMES = 15, DIVISION = 16, MOD = 17, ASSIGN = 18, COMMA = 19, SEMI = 20, 
+    COLON = 21, EQ = 22, LT = 23, LEQ = 24, GT = 25, GEQ = 26, NEQ = 27, 
+    LPAREN = 28, RPAREN = 29, LPARENCOM = 30, RPARENCOM = 31, LBRACK = 32, 
+    RBRACK = 33, DOT = 34, LCURLY = 35, RCURLY = 36, AND = 37, OR = 38, 
+    NOT = 39, ID = 40, NUMBER = 41, STRING = 42, R_COMMENT = 43, C_COMMENT = 44, 
+    LINE_COMMENT = 45, WS = 46, ErrorChar = 47
   };
 
   pascalLexer(antlr4::CharStream *input);

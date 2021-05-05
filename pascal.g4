@@ -3,40 +3,24 @@ grammar pascal;
 start     : 'program' ID SEMI 'var' decl_list main_code EOF ;
 
 decl_list : decl | decl decl_list ;
-decl      : var_list COLON 'integer' SEMI ;
-var_list  : ID | ID COMMA var_list ;
+decl      : ID COMMA decl | ID COLON 'integer' SEMI ;
 
-main_code : code_block DOT ;
-code_block: 'begin' st_list 'end' ;
-st_list   : statement | statement SEMI st_list ;
+main_code : 'begin' st_list 'end' DOT ;
+code_block: 'begin' st_list 'end' | statement ;
+st_list   : statement SEMI | statement SEMI st_list ;
           
-statement : sopen | sclose ;
-sclose    : |assign | closebranch | code_block | in | out | loop ;
-sopen     : openbranch;
+statement : assign | branch | in | out | loop ;
 
-expr      : arith_expr | bool_expr | STRING ;
+expr      : NUMBER | ID | expr (PLUS|MINUS|TIMES|DIVISION|MOD) expr | LPAREN expr RPAREN;
 
-arith_expr: sum ;
-sum       : prod | prod (PLUS | MINUS) sum ;
-prod      : sign | sign (TIMES | DIVISION | MOD) prod ;
-sign      : value | (PLUS | MINUS) sign ;
-value     : NUMBER | ID | LPAREN arith_expr RPAREN ;
-
-bool_expr : or_oper ;
-or_oper   : and_oper | and_oper 'or' or_oper ;
-and_oper  : not_oper | not_oper 'and' and_oper ;
-not_oper  : bvalue | 'not' bvalue ;
-bvalue: relation | LPAREN bool_expr RPAREN ;
-relation  : arith_expr LT arith_expr | arith_expr LEQ arith_expr | arith_expr EQ arith_expr | arith_expr NEQ arith_expr | arith_expr GEQ arith_expr | arith_expr GT arith_expr ;
+relation  : expr LT expr | expr LEQ expr | expr EQ expr | expr NEQ expr | expr GEQ expr | expr GT expr | relation AND relation | relation OR relation | relation NOT relation | LPAREN relation RPAREN ;
 
 
 assign    : ID ASSIGN expr ;
 in        : 'readln' LPAREN ID RPAREN;
-out       : 'writeln' LPAREN expr RPAREN ;
-branch    : 'if' bool_expr 'then' code_block ;
-openbranch: 'if' bool_expr 'then' sopen | 'if' bool_expr 'then' sclose 'else' sopen ;
-closebranch: 'if' bool_expr 'then' sclose | 'if' bool_expr 'then' sclose 'else' sclose ;
-loop      : 'repeat' st_list 'until' bool_expr ;
+out       : 'writeln' LPAREN expr RPAREN | 'writeln' LPAREN STRING RPAREN;
+branch    : 'if' relation 'then' code_block | 'if' relation 'then' code_block 'else' code_block;
+loop      : 'repeat' st_list 'until' relation ;
 
 
 PLUS      : '+' ;
@@ -63,9 +47,12 @@ RBRACK    : ']' ;
 DOT       : '.' ;
 LCURLY    : '{' ;
 RCURLY    : '}' ;
+AND       : 'and' ;
+OR        : 'or' ;
+NOT       : 'not' ;
 ID        : [a-z]+ ;
 NUMBER    : [0-9]+ ;
-STRING    : '\'' ~[']* '\'' ;
+STRING    : '\'' .*? '\'' ;
 
 R_COMMENT : LPARENCOM .*? RPARENCOM -> skip ;     // .*? matches anything until the first *)
 C_COMMENT : LCURLY .*? RCURLY -> skip ;       // .*? matches anything until the first }
