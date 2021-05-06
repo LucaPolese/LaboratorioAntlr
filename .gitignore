@@ -8,3 +8,9 @@ pascal.interp
 pascal.tokens
 pascalLexer.o
 syncheck
+pascalLexer.cpp
+pascalLexer.h
+pascalParser.cpp
+pascalParser.h
+pascalParser.o
+syncheck.o
